@@ -30,19 +30,21 @@ public class Main {
 
         switch(time) {
             case "dag":
-                if (traffic.equalsIgnoreCase("høj")) {
+                if (traffic.equalsIgnoreCase("lav")) {
                     lights = "Grønt";
+                    break;
         }
             case "aften":
                 lights = "Gul";
-
+                    break;
             case "nat":
-                if(traffic.equalsIgnoreCase("lav")) {
-                    lights = "Gult";
-                }
-                else if(traffic.equalsIgnoreCase("høj")) {
+                if(traffic.equalsIgnoreCase("høj")) {
                     lights = "Rødt";
                 }
+                else {
+                    lights = "Gult";
+                }
+                break;
 
         }
         if(areaType.equalsIgnoreCase("bolig") && traffic.equalsIgnoreCase("høj")) {
@@ -54,8 +56,8 @@ public class Main {
         if (areaType.equalsIgnoreCase("bolig") && time.equalsIgnoreCase("nat")) {
                     access = "forbudt";
         }
-        else if (areaType.equalsIgnoreCase("blandet") && traffic.equalsIgnoreCase("lav") || areaType.equalsIgnoreCase("Erverv") && traffic.equalsIgnoreCase("lav")) {
-                    access = "Tilladt";
+        else if (areaType.equalsIgnoreCase("blandet") || areaType.equalsIgnoreCase("Erverv") && traffic.equalsIgnoreCase("lav")) {
+                    access = " Tilladt";
                 }
 
         if (emergencyAnswer) {
