@@ -24,8 +24,8 @@ public class Main {
         if (emergency.equalsIgnoreCase("ja")) {
             emergencyAnswer = true;
         }
-        else {
-            emergency.equalsIgnoreCase("nej");
+        else if (emergency.equalsIgnoreCase("nej")) {
+            emergencyAnswer = false;
         }
 
         switch(time) {
