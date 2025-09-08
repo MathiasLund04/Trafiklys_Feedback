@@ -5,32 +5,68 @@ public class Main {
 
         Scanner scanner1 = new Scanner(System.in);
 
-        System.out.println("Hvad tid på dagen er det? ");
+        System.out.println("Hvad tid på dagen er det? (dag, aften, nat)");
         String time = scanner1.nextLine();
-        System.out.println("Hvordan ser trafik mængden ud? ");
-        String trafic = scanner1.nextLine();
-        System.out.println("i hvilket områdetype er du? ");
+
+        System.out.println("Hvordan ser trafik mængden ud? (høj, lav) ");
+        String traffic = scanner1.nextLine();
+
+        System.out.println("i hvilket områdetype er du? (bolig, erhverv, blandet) ");
         String areaType = scanner1.nextLine();
-        System.out.println("Er det en nødsituation? ");
-        boolean emergency = scanner1.nextBoolean();
 
-        String lys;
+        System.out.println("Er det en nødsituation? (ja, nej)");
+        String emergency = scanner1.nextLine();
 
-        //Grønt Lys
-        if(time.equalsIgnoreCase("dag") && trafic.equalsIgnoreCase("høj") || emergency){
-            lys = "Grøn";
-            System.out.println("Trafiklys status: " + lys + "Trafikken flyder fint");
+        boolean emergencyAnswer = false;
+        String lights = "";
+        String access = "";
+
+        if (emergency.equalsIgnoreCase("ja")) {
+            emergencyAnswer = true;
+        }
+        else {
+            emergency.equalsIgnoreCase("nej");
+        }
+
+        switch(time) {
+            case "dag":
+                if (traffic.equalsIgnoreCase("høj")) {
+                    lights = "Grønt";
+        }
+            case "aften":
+                lights = "Gul";
+
+            case "nat":
+                if(traffic.equalsIgnoreCase("lav")) {
+                    lights = "Gult";
+                }
+                else if(traffic.equalsIgnoreCase("høj")) {
+                    lights = "Rødt";
+                }
 
         }
-        //Gult Lys
-        else if(time.equalsIgnoreCase("aften") || time.equalsIgnoreCase("nat") && trafic.equalsIgnoreCase("lav")){
-            lys = "Gul";
-            System.out.println("Trfiklys status: " + lys);
+        if(areaType.equalsIgnoreCase("bolig") && traffic.equalsIgnoreCase("høj")) {
+            lights = "Rødt";
         }
-        //Rødt Lys
-        else if(time.equalsIgnoreCase("nat") && trafic.equalsIgnoreCase("høj") ){
 
+        //adgang
+
+        if (areaType.equalsIgnoreCase("bolig") && time.equalsIgnoreCase("nat")) {
+                    access = "forbudt";
         }
+        else if (areaType.equalsIgnoreCase("blandet") && traffic.equalsIgnoreCase("lav") || areaType.equalsIgnoreCase("Erverv") && traffic.equalsIgnoreCase("lav")) {
+                    access = "Tilladt";
+                }
+
+        if (emergencyAnswer) {
+            lights = "Grøn";
+            System.out.println("Trafiklys Status: " + lights + " Nødsituation");
+        }
+        else {
+            System.out.println("Trafiklys Status " + lights);
+            System.out.println("adgang: " + access);
+        }
+
 
     }
 }
