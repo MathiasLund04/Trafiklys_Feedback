@@ -5,6 +5,10 @@ public class Main {
 
         Scanner scanner1 = new Scanner(System.in);
 
+        boolean emergencyAnswer = false;
+        String lights = "";
+        String access;
+
         System.out.println("Hvad tid på dagen er det? (dag, aften, nat)");
         String time = scanner1.nextLine();
 
@@ -17,9 +21,7 @@ public class Main {
         System.out.println("Er det en nødsituation? (ja, nej)");
         String emergency = scanner1.nextLine();
 
-        boolean emergencyAnswer = false;
-        String lights = "";
-        String access = "";
+
                 // Gør så man kan svare ja/nej istedet for True/false
         if (emergency.equalsIgnoreCase("ja")) {
             emergencyAnswer = true;
@@ -37,6 +39,7 @@ public class Main {
             case "aften":
                 lights = "Gul";
                     break;
+
             case "nat":
                 if(traffic.equalsIgnoreCase("høj")) {
                     lights = "Rødt";
