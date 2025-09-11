@@ -20,7 +20,7 @@ public class Main {
         boolean emergencyAnswer = false;
         String lights = "";
         String access = "";
-
+                // Gør så man kan svare ja/nej istedet for True/false
         if (emergency.equalsIgnoreCase("ja")) {
             emergencyAnswer = true;
         }
@@ -59,7 +59,11 @@ public class Main {
         else if (areaType.equalsIgnoreCase("blandet") || areaType.equalsIgnoreCase("Erverv") && traffic.equalsIgnoreCase("lav")) {
                     access = " Tilladt";
                 }
+        else{
+            access = " intet special";
+        }
 
+        // Printer endelige besked med info
         if (emergencyAnswer) {
             lights = "Grøn";
             System.out.println("Trafiklys Status: " + lights + " Nødsituation");
