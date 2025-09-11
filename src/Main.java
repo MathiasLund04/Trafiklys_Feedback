@@ -26,23 +26,21 @@ public class Main {
         if (emergency.equalsIgnoreCase("ja")) {
             emergencyAnswer = true;
         }
-        else if (emergency.equalsIgnoreCase("nej")) {
-            emergencyAnswer = false;
-        }
+        else
 
-        switch(time) {
-            case "dag":
-                if (traffic.equalsIgnoreCase("lav")) {
-                    lights = "Grønt";
-                    break;
+            switch(time) {
+                case "dag":
+                    if (traffic.equalsIgnoreCase("lav")) {
+                        lights = "Grønt";
+                        break;
         }
-            case "aften":
-                lights = "Gul";
-                    break;
+                case "aften":
+                    lights = "Gul";
+                        break;
 
-            case "nat":
-                if(traffic.equalsIgnoreCase("høj")) {
-                    lights = "Rødt";
+                case "nat":
+                    if(traffic.equalsIgnoreCase("høj")) {
+                        lights = "Rødt";
                 }
                 else {
                     lights = "Gult";
